@@ -2,14 +2,21 @@ $(function () {
   const amenitiesNames = [];
   const amenitiesDict = {};
 
-  const url1 = "http://0.0.0.0:5001/api/v1/status/";
-  $.get(url1, function (data) {
+  const url = 'http://0.0.0.0:5001/api/v1/status/';
+  $.get(url, function (data) {
     $('DIV#api_status').toggleClass('available nok');
   });
 
-  const url2 = "http://0.0.0.0:5001/api/v1/places_search/";
-  $.get(url2, function (data) {
-    $('DIV#api_status').toggleClass('available nok');
+  $.ajax({
+    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    type: 'post',
+    data: {},
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    dataType: 'json'
+  }).done(function (data) {
+    console.info(data);
   });
 
   $('.amenities ul li input').change(function () {
