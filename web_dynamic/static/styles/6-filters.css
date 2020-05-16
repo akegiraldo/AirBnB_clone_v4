@@ -55,13 +55,6 @@ button:hover {
     width: 25%;
 }
 
-.mini {
-    height: 30px;
-    overflow: hidden;
-    padding-top: 5px;
-    max-width: 270px;
-}
-
 .popover {
     visibility: hidden;
     width: 100%;
@@ -89,7 +82,8 @@ button:hover {
     margin: 0px;
 }
 
-.amenities ul li input {
+.amenities ul li input,
+.locations ul li input {
     margin-right: 10px;
 }
 
@@ -104,6 +98,10 @@ button:hover {
 .popover ul li{
     padding: 4px;
     padding-left: 10px;
+}
+
+.locations h2{
+    display: inline-block;
 }
 
 .popover ul h2{
