@@ -12,7 +12,7 @@ $(function () {
   $('.container .filters button').on('click', function () {
     if (amenitiesIds.length > 0) {
       $('.places').empty();
-      ids = {'amenities': amenitiesIds};
+      ids = { 'amenities': amenitiesIds };
       loadPlaces();
     } else {
       $('.places').empty();
@@ -21,8 +21,7 @@ $(function () {
     }
   });
 
-  function loadPlaces() {
-    console.log('ìds', ids);
+  function loadPlaces () {
     $.ajax({
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
       type: 'post',
@@ -32,7 +31,6 @@ $(function () {
       },
       dataType: 'json'
     }).done(function (places) {
-      console.log(places[0]);
       for (const place of places) {
         $('.places').append(`
           <article>

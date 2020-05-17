@@ -15,7 +15,7 @@ $(function () {
   $('.container .filters button').on('click', function () {
     if (amenitiesIds.length > 0 || statesIds.length > 0 || citiesIds.length > 0) {
       $('.places').empty();
-      ids = {'amenities': amenitiesIds, 'states': statesIds, 'cities': citiesIds};
+      ids = { 'amenities': amenitiesIds, 'states': statesIds, 'cities': citiesIds };
       loadPlaces();
     } else {
       $('.places').empty();
@@ -24,8 +24,7 @@ $(function () {
     }
   });
 
-  function loadPlaces() {
-    console.log('ìds', ids);
+  function loadPlaces () {
     $.ajax({
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
       type: 'post',

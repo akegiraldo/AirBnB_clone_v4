@@ -19,7 +19,7 @@ $(function () {
   $('.container .filters button').on('click', function () {
     if (amenitiesIds.length > 0 || statesIds.length > 0 || citiesIds.length > 0) {
       $('.places').empty();
-      ids = {'amenities': amenitiesIds, 'states': statesIds, 'cities': citiesIds};
+      ids = { 'amenities': amenitiesIds, 'states': statesIds, 'cities': citiesIds };
       loadPlaces();
     } else {
       $('.places').empty();
@@ -28,8 +28,7 @@ $(function () {
     }
   });
 
-  function loadPlaces() {
-    console.log('ìds', ids);
+  function loadPlaces () {
     $.ajax({
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
       type: 'post',
@@ -42,10 +41,10 @@ $(function () {
       for (const place of places) {
         url = `http://0.0.0.0:5001/api/v1/users/${place.user_id}`;
         let userName = '';
-        let _promise = new Promise(function (resolved, rejected) {
+        const _promise = new Promise(function (resolve, reject) {
           $.get(url, function (user) {
             userName = user.first_name + ' ' + user.last_name;
-            resolved(userName);
+            resolve(userName);
           });
         });
         _promise.then(function () {
@@ -71,7 +70,7 @@ $(function () {
                 <ul id=${place.id}></ul>
               </div>
             </article>`);
-        })
+        });
       }
     }).fail(function (e) {
       console.log(e);
@@ -83,18 +82,18 @@ $(function () {
     if ($(this).text() === 'Show') {
       $(this).text('Hide');
       $.get(url, function (reviews) {
-        for (review of reviews) {
+        for (const review of reviews) {
           url = `http://0.0.0.0:5001/api/v1/users/${review.user_id}`;
           let userName = '';
-          let _promise = new Promise(function (resolved, rejected) {
+          const _promise = new Promise(function (resolve, reject) {
             $.get(url, function (user) {
               userName = user.first_name + ' ' + user.last_name;
-              resolved(userName);
+              resolve(userName);
             });
           });
           _promise.then(function () {
-            let date = new Date(Date.parse(review.created_at)).toDateString();
-            $('#'+id).append(`
+            const date = new Date(Date.parse(review.created_at)).toDateString();
+            $('#' + id).append(`
             <li>
               <h3>From ${userName} the ${date}</h3>
               <p>${review.text}</p>
@@ -104,7 +103,7 @@ $(function () {
       });
     } else if ($(this).text() === 'Hide') {
       $(this).text('Show');
-      $('#'+id).empty();
+      $('#' + id).empty();
     }
   });
 
