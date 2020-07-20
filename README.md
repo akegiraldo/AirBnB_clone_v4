@@ -167,6 +167,5 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 Sara Hincapié - [Github](https://github.com/shincap8) / [Twitter](https://twitter.com/sahimo5)
 Kevin Giraldo - [Github](https://github.com/Doouh) / [Twitter](https://twitter.com/KevinGiraldo89)
 
-Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
